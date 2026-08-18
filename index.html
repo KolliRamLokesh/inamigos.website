@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InAmigos Foundation | Youth-Led Social Action Across India</title>
+  <meta name="description" content="InAmigos Foundation is a Section 8 registered non-profit organization driving youth-led action in child education, women empowerment, animal welfare, water conservation, and hunger relief across India.">
+  
+  <!-- Inter & Plus Jakarta Sans Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              950: '#022c22',
+              900: '#064E3B',
+              800: '#065f46',
+              700: '#047857',
+              600: '#059669',
+              500: '#10b981',
+              100: '#d1fae5',
+              50: '#ecfdf5',
+            },
+            amber: {
+              700: '#b45309',
+              600: '#D97706',
+              500: '#f59e0b',
+              400: '#fbbf24',
+              100: '#fef3c7',
+              50: '#fffbeb',
+            },
+            slate: {
+              850: '#151f32',
+              900: '#0f172a',
+              950: '#020617',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'premium': '0 10px 30px -10px rgba(6, 78, 59, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+            'button': '0 4px 14px 0 rgba(217, 119, 6, 0.35)',
+            'card': '0 12px 32px -8px rgba(0, 0, 0, 0.08)',
+            'card-hover': '0 20px 40px -12px rgba(6, 78, 59, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .glass-nav {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    
+    .text-gradient-emerald {
+      background: linear-gradient(135deg, #064E3B 0%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .text-gradient-amber {
+      background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-view {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+    }
+
+    .page-view.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .nav-link.active-tab {
+      color: #064E3B;
+      font-weight: 700;
+      border-bottom: 2px solid #D97706;
+    }
+
+    .mobile-nav-link.active-tab {
+      background-color: #ecfdf5;
+      color: #064E3B;
+      font-weight: 700;
+    }
+
+    .poster-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .poster-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-900 selection:text-white">
+
+  <!-- ==================== GLOBAL NAVBAR ==================== -->
+  <header class="sticky top-0 left-0 w-full z-50 glass-nav border-b border-slate-200/80 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#home" onclick="navigateTo('home'); return false;" class="flex items-center space-x-3 group">
+          <img src="logo.jpg" alt="InAmigos Foundation Logo" class="h-12 w-12 rounded-xl object-contain bg-black p-1 shadow-md border border-slate-200 transition-transform duration-300 group-hover:scale-105">
+          <div class="flex flex-col">
+            <span class="font-extrabold text-xl tracking-tight text-emerald-900 group-hover:text-emerald-700 transition-colors">
+              InAmigos <span class="text-amber-600 font-semibold">Foundation</span>
+            </span>
+            <span class="text-[10px] text-slate-500 font-medium tracking-wide uppercase">Uniting Minds For Change</span>
+          </div>
+        </a>
+        
+        <!-- Desktop Navigation Links (True Separate Pages) -->
+        <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+          <a href="#home" onclick="navigateTo('home'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="home">Home</a>
+          <a href="#about" onclick="navigateTo('about'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="about">About Us</a>
+          <a href="#projects" onclick="navigateTo('projects'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="projects">Core Projects</a>
+          <a href="#campaigns" onclick="navigateTo('campaigns'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="campaigns">Campaigns</a>
+          <a href="#media" onclick="navigateTo('media'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="media">Media & Press</a>
+          <a href="#gallery" onclick="navigateTo('gallery'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="gallery">Photo Gallery</a>
+          <a href="#badges" onclick="navigateTo('badges'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="badges">Trust Credentials</a>
+          <a href="#contact" onclick="navigateTo('contact'); return false;" class="nav-link py-2 transition-colors hover:text-emerald-900" data-page="contact">Contact</a>
+        </nav>
+        
+        <!-- Header Actions -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button onclick="navigateTo('donate')" class="px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow-button hover:shadow-lg transition-all duration-200 active:scale-95 text-sm flex items-center space-x-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            <span>Donate</span>
+          </button>
+        </div>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex lg:hidden">
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="inline-flex items-center justify-center p-2.5 rounded-xl text-emerald-900 hover:bg-emerald-50 focus:outline-none transition-colors border border-slate-200">
+            <svg class="h-6 w-6" id="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="h-6 w-6 hidden" id="close-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 shadow-2xl transition-all duration-300 px-4 py-4 space-y-2">
+      <a href="#home" onclick="navigateTo('home'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="home">Home</a>
+      <a href="#about" onclick="navigateTo('about'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="about">About Us</a>
+      <a href="#projects" onclick="navigateTo('projects'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="projects">Core Projects</a>
+      <a href="#campaigns" onclick="navigateTo('campaigns'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="campaigns">Campaigns</a>
+      <a href="#media" onclick="navigateTo('media'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="media">Media & Press</a>
+      <a href="#gallery" onclick="navigateTo('gallery'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="gallery">Photo Gallery</a>
+      <a href="#badges" onclick="navigateTo('badges'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="badges">Trust Credentials</a>
+      <a href="#contact" onclick="navigateTo('contact'); toggleMobileMenu(); return false;" class="mobile-nav-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-900" data-page="contact">Contact</a>
+      <div class="pt-3 border-t border-slate-100 flex gap-2">
+        <button onclick="navigateTo('donate'); toggleMobileMenu();" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow-button text-center text-sm">
+          Donate to Cause
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN PAGE CONTAINER ==================== -->
+  <main class="flex-grow">
+
+    <!-- ============================================================ -->
+    <!-- 1. PAGE: HOME                                                -->
+    <!-- ============================================================ -->
+    <div id="page-home" class="page-view active">
+      
+      <!-- Hero Section -->
+      <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-emerald-50/60 via-white to-slate-50 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+              <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-900 border border-emerald-300/60 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-600 mr-2 animate-pulse"></span>
+                Section 8 Registered Non-Profit &bull; 80G Tax Exempt
+              </span>
+              
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-emerald-950 leading-[1.15]">
+                Empowering Lives, <br>
+                <span class="text-gradient-emerald">Spreading Compassion</span>
+              </h1>
+              
+              <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">
+                Uniting students, youth, and communities across India to create tangible ground-level impact. From child education and women's computer proficiency to stray animal rescue and water conservation.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+                <button onclick="navigateTo('projects')" class="w-full sm:w-auto px-8 py-4 bg-emerald-900 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-card hover:shadow-card-hover transition-all duration-200 active:scale-95 text-base flex items-center justify-center space-x-2">
+                  <span>Explore Core Portfolios</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+                <button onclick="navigateTo('donate')" class="w-full sm:w-auto px-8 py-4 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow-button hover:shadow-lg transition-all duration-200 active:scale-95 text-base text-center">
+                  Donate Support
+                </button>
+              </div>
+            </div>
+            
+            <!-- Hero Featured Visual Grid -->
+            <div class="lg:col-span-5 relative flex justify-center">
+              <div class="relative w-full max-w-lg bg-white rounded-3xl p-5 shadow-card border border-slate-200/80 group">
+                <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-900 cursor-pointer" onclick="navigateTo('gallery')">
+                  <img src="images/child-education.jpg" alt="Campaign for Child Education" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-between p-4">
+                    <span class="self-start px-3 py-1 bg-amber-500 text-slate-950 font-extrabold text-[10px] uppercase rounded-full tracking-wider shadow-md">Active Ground Drive</span>
+                    <div class="text-white">
+                      <span class="text-xs text-amber-300 font-bold block">BachpanShala Initiative</span>
+                      <h3 class="text-lg font-bold">Campaign for Child Education</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3 Mini Feature Badges with authentic images -->
+                <div class="grid grid-cols-3 gap-2.5 mt-3">
+                  <div onclick="navigateTo('projects')" class="bg-emerald-50 hover:bg-emerald-100 p-2 rounded-xl text-center cursor-pointer transition-colors border border-emerald-100">
+                    <span class="text-[10px] font-bold text-emerald-950 block truncate">Project Vikas</span>
+                    <span class="text-[11px] text-emerald-700 font-semibold">Youth Lab</span>
+                  </div>
+                  <div onclick="navigateTo('campaigns')" class="bg-amber-50 hover:bg-amber-100 p-2 rounded-xl text-center cursor-pointer transition-colors border border-amber-100">
+                    <span class="text-[10px] font-bold text-amber-950 block truncate">Project Udaan</span>
+                    <span class="text-[11px] text-amber-700 font-semibold">Women DTP</span>
+                  </div>
+                  <div onclick="navigateTo('gallery')" class="bg-slate-100 hover:bg-slate-200 p-2 rounded-xl text-center cursor-pointer transition-colors border border-slate-200">
+                    <span class="text-[10px] font-bold text-slate-900 block truncate">Save Water</span>
+                    <span class="text-[11px] text-slate-600 font-semibold">Eco Drives</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Bar -->
+      <section class="py-12 bg-emerald-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="space-y-1">
+              <span class="text-3xl sm:text-5xl font-black text-amber-400">50,000+</span>
+              <p class="text-xs sm:text-sm text-emerald-200 uppercase font-semibold tracking-wider">Beneficiaries Reached</p>
+            </div>
+            <div class="space-y-1">
+              <span class="text-3xl sm:text-5xl font-black text-amber-400">30,000+</span>
+              <p class="text-xs sm:text-sm text-emerald-200 uppercase font-semibold tracking-wider">Interns & Volunteers</p>
+            </div>
+            <div class="space-y-1">
+              <span class="text-3xl sm:text-5xl font-black text-amber-400">28</span>
+              <p class="text-xs sm:text-sm text-emerald-200 uppercase font-semibold tracking-wider">States Covered</p>
+            </div>
+            <div class="space-y-1">
+              <span class="text-3xl sm:text-5xl font-black text-amber-400">100%</span>
+              <p class="text-xs sm:text-sm text-emerald-200 uppercase font-semibold tracking-wider">Audited Transparency</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolios Preview Grid on Home -->
+      <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+            <div class="space-y-2">
+              <div class="inline-flex items-center space-x-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
+                <span class="w-6 h-0.5 bg-emerald-800"></span>
+                <span>Flagship Portfolios</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 tracking-tight">Our Core Action Initiatives</h2>
+              <p class="text-slate-600 text-sm max-w-xl">Every project is built to deliver measured impact and active student participation across communities.</p>
+            </div>
+            <button onclick="navigateTo('projects')" class="self-start md:self-auto px-6 py-3 bg-emerald-50 text-emerald-900 hover:bg-emerald-100 font-bold rounded-xl transition-all text-sm flex items-center space-x-2">
+              <span>View All 7 Portfolios</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+
+          <!-- Cards Row -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Project Vikas with computer lab image -->
+            <div onclick="openProjectPage('vikas')" class="poster-card bg-slate-50 rounded-3xl overflow-hidden border border-slate-200/90 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/project-vikas-lab.jpg" alt="Project Vikas Computer Training Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-emerald-900 text-emerald-100 text-[10px] font-bold uppercase px-3 py-1 rounded-full">Skill Lab</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-amber-400 text-xs font-semibold uppercase">Youth Employability</span>
+                    <h3 class="text-xl font-bold">Project Vikas</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-2">
+                  <p class="text-slate-600 text-sm leading-relaxed">Providing 1,000+ internship opportunities and computer training labs across 8+ technical and creative domains.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>30,000+ Interns Placed</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>Open Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Card 2: Save Water with Globe/Tap image -->
+            <div onclick="openProjectPage('water')" class="poster-card bg-slate-50 rounded-3xl overflow-hidden border border-slate-200/90 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/save-water-tap.png" alt="Save Water Initiative" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-emerald-900 text-emerald-100 text-[10px] font-bold uppercase px-3 py-1 rounded-full">Environmental</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-amber-400 text-xs font-semibold uppercase">Water & Ecology</span>
+                    <h3 class="text-xl font-bold">Save Water, Save Life</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-2">
+                  <p class="text-slate-600 text-sm leading-relaxed">Rainwater harvesting campaigns, water conservation workshops, and tree plantation drives across regions.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>20,000+ Trees Planted</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>Open Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Card 3: Project Seva with food distribution image -->
+            <div onclick="openProjectPage('seva')" class="poster-card bg-slate-50 rounded-3xl overflow-hidden border border-slate-200/90 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/food-distribution.jpg" alt="Project Seva Food Relief" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-amber-500 text-slate-950 text-[10px] font-bold uppercase px-3 py-1 rounded-full">Hunger Relief</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-amber-400 text-xs font-semibold uppercase">Relief & Support</span>
+                    <h3 class="text-xl font-bold">Project Seva</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-2">
+                  <p class="text-slate-600 text-sm leading-relaxed">Fresh nutritious meals distribution, winter blanket drives, and emergency ration packages for families in need.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>15,000+ Meals Distributed</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>Open Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Call to Action Banner -->
+      <section class="py-16 bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Ready to Join the Movement?</h2>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-base">Whether you want to join as an active intern, volunteer on weekends, or contribute to our feeding and education drives, your support makes a real difference.</p>
+          <div class="flex flex-wrap justify-center gap-4 pt-2">
+            <button onclick="navigateTo('contact')" class="px-8 py-3.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow-button transition-all">
+              Apply as Volunteer / Intern
+            </button>
+            <button onclick="navigateTo('gallery')" class="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/20 transition-all">
+              View Ground Media Gallery
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 2. PAGE: ABOUT US                                            -->
+    <!-- ============================================================ -->
+    <div id="page-about" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <span class="px-3.5 py-1 text-xs font-bold bg-emerald-800 text-amber-400 rounded-full uppercase tracking-wider border border-emerald-700">Section 8 Registered Non-Profit</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">About InAmigos Foundation</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-base">Dedicated to transforming potential into purpose. We bridge youth energy with critical social needs across India.</p>
+        </div>
+      </section>
+
+      <!-- Main About Content & Founder Spotlight -->
+      <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+              <div class="inline-flex items-center space-x-2 text-emerald-900 font-bold text-xs uppercase tracking-wider">
+                <span class="w-6 h-0.5 bg-emerald-900"></span>
+                <span>Our Core Mission</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 leading-snug">
+                Driving Ground-Level Social Transformation Across India
+              </h2>
+              <p class="text-slate-600 leading-relaxed font-body">
+                InAmigos Foundation is a Section 8 registered non-profit organization focused on building scalable, youth-led models of social reform. We believe that youth, when given proper mentorship and purpose, can resolve the country’s most acute bottlenecks.
+              </p>
+              <p class="text-slate-600 leading-relaxed font-body">
+                From daily hunger relief drives to digital upskilling and primary education study circles, our interventions are immediate, audited, and sustainable.
+              </p>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
+                  <h4 class="font-bold text-emerald-950 text-sm mb-1">&check; 100% Direct Utilization</h4>
+                  <p class="text-xs text-slate-600">Every rupee is allocated transparently with complete donor reporting.</p>
+                </div>
+                <div class="p-4 bg-amber-50 rounded-2xl border border-amber-100">
+                  <h4 class="font-bold text-amber-950 text-sm mb-1">&check; 80G Tax Exemption</h4>
+                  <p class="text-xs text-slate-600">All donations are eligible for 50% tax deduction benefits under Section 80G.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Founder Spotlight with Authentic Poster -->
+            <div class="lg:col-span-6">
+              <div class="bg-gradient-to-br from-slate-900 to-emerald-950 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-emerald-800/40 relative overflow-hidden">
+                <div class="inline-flex items-center space-x-2 bg-amber-500/20 text-amber-400 border border-amber-500/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                  <span>Leadership That Leads By Example</span>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                  <div class="sm:col-span-5 cursor-pointer group" onclick="openLightbox('images/blood-donation.jpg', 'Founder Mr. Govind Shukla - Blood Donation Drive')">
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-xl aspect-[3/4] bg-black">
+                      <img src="images/blood-donation.jpg" alt="Founder Mr. Govind Shukla" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2.5">
+                        <span class="text-[10px] font-bold text-amber-300 flex items-center space-x-1">&plus; Expand Poster</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="sm:col-span-7 space-y-4">
+                    <div>
+                      <h3 class="text-2xl font-black text-white">Mr. Govind Shukla</h3>
+                      <p class="text-amber-400 text-xs font-bold uppercase tracking-wider">CEO & Founder, InAmigos Foundation</p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/10 text-emerald-100 italic text-sm leading-relaxed">
+                      &ldquo;Don't wait for the change, be the change.&rdquo;
+                    </div>
+                    
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                      Leading by personal example, our founder actively spearheads blood donation drives, hunger relief, animal shelters, and student mentorship across India.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap gap-2">
+                      <button onclick="openProjectPage('blood')" class="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold transition-all shadow-md">
+                        Blood Donation Campaign &rarr;
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-Project Collage Spotlight -->
+          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200/80">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div class="md:col-span-5 cursor-pointer group" onclick="openLightbox('images/projects-collage.jpg', 'InAmigos Foundation Impact Collage')">
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-300 aspect-[4/3] bg-slate-900">
+                  <img src="images/projects-collage.jpg" alt="InAmigos Projects Collage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+              </div>
+              <div class="md:col-span-7 space-y-4">
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-900 text-xs font-bold rounded-full uppercase">Integrated Action</span>
+                <h3 class="text-2xl font-extrabold text-emerald-950">&ldquo;When Words Meet Purpose &ndash; Content Writing & Action For Real Change&rdquo;</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Our multi-tiered ground teams in Haryana, Chhattisgarh, Maharashtra, and across India mobilize youth to document social stories, conduct drives, and execute direct support for children, stray animals, and disadvantaged communities.</p>
+                <div class="flex gap-4 pt-2">
+                  <button onclick="navigateTo('gallery')" class="px-5 py-2.5 bg-emerald-900 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs">
+                    Explore Gallery Photos &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 3. PAGE: CORE PROJECTS (FULL PAGE LISTING)                  -->
+    <!-- ============================================================ -->
+    <div id="page-projects" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span class="px-3.5 py-1 text-xs font-bold bg-emerald-800 text-amber-400 rounded-full uppercase tracking-wider border border-emerald-700">Action Portfolios</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Our Core Action Portfolios</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-sm sm:text-base">Click on any project to view its full dedicated page with complete modules, ground photos, and enrollment options.</p>
+        </div>
+      </section>
+
+      <!-- Projects Grid -->
+      <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. Project Vikas -->
+            <div onclick="openProjectPage('vikas')" class="poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/project-vikas-lab.jpg" alt="Project Vikas Computer Training" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-amber-500 text-slate-950 text-[10px] font-bold uppercase px-3 py-1 rounded-full">Youth Employability</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-emerald-400 text-xs font-bold uppercase">Internships & Labs</span>
+                    <h3 class="text-xl font-extrabold">Project Vikas</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <p class="text-xs text-emerald-800 font-bold uppercase tracking-wider">Transforming Careers, One Internship at a Time</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">Engaging 100,000+ interns with real work across 8+ domains including computer labs, graphic design, PR, and community management.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>30,000+ Placements</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>View Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 2. Save Water, Save Life -->
+            <div onclick="openProjectPage('water')" class="poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/save-water-tap.png" alt="Save Water Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-emerald-900 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">Water Conservation</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-amber-400 text-xs font-bold uppercase">Eco Sustainability</span>
+                    <h3 class="text-xl font-extrabold">Save Water, Save Life</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <p class="text-xs text-emerald-800 font-bold uppercase tracking-wider">A Call to Action for Sustainable Future</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">Combating freshwater scarcity through rainwater harvesting campaigns, tree plantations, and water management workshops.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>PAN-India Drives</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>View Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 3. BachpanShala / Child Education -->
+            <div onclick="openProjectPage('bachpanshala')" class="poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/child-education.jpg" alt="Child Education Campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-amber-500 text-slate-950 text-[10px] font-bold uppercase px-3 py-1 rounded-full">Child Education</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-emerald-400 text-xs font-bold uppercase">Primary Learning</span>
+                    <h3 class="text-xl font-extrabold">BachpanShala</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <p class="text-xs text-emerald-800 font-bold uppercase tracking-wider">Poverty Ends When Love Wins</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">Providing outdoor community schooling, educational kits, books, and nutrition to underprivileged young learners.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>4,500+ Children Educated</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>View Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 4. Project Udaan -->
+            <div onclick="openProjectPage('udaan')" class="poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/project-udaan.jpg" alt="Project Udaan Women Mentorship" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-emerald-900 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">Women Empowerment</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-amber-400 text-xs font-bold uppercase">DTP & Skills</span>
+                    <h3 class="text-xl font-extrabold">Project Udaan</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <p class="text-xs text-emerald-800 font-bold uppercase tracking-wider">Where Women Rise & Dreams Soar</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">Empowering 900+ women with Desktop Publishing (DTP), tailoring, digital tools, and personal mentorship for financial independence.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>900+ Women Empowered</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>View Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 5. Project Jeev -->
+            <div onclick="openProjectPage('jeev')" class="poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/project-jeev.jpg" alt="Project Jeev Animal Shelter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-amber-500 text-slate-950 text-[10px] font-bold uppercase px-3 py-1 rounded-full">Animal Protection</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-emerald-400 text-xs font-bold uppercase">Rescue & Feed</span>
+                    <h3 class="text-xl font-extrabold">Project Jeev</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <p class="text-xs text-emerald-800 font-bold uppercase tracking-wider">In This Life, Save a Life</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">Feeding 800+ stray dogs daily, building protective makeshift straw shelters, and providing medical aid to speech-deprived animals.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>800+ Strays Fed Daily</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>View Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 6. Project Seva -->
+            <div onclick="openProjectPage('seva')" class="poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/food-distribution.jpg" alt="Project Seva Food Relief" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-emerald-900 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">Hunger & Relief</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-amber-400 text-xs font-bold uppercase">Nutrition Drives</span>
+                    <h3 class="text-xl font-extrabold">Project Seva</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <p class="text-xs text-emerald-800 font-bold uppercase tracking-wider">Nutritious Meals & Blanket Drives</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">Distributing cooked meals, clothing, winter blankets, and essential dry relief rations to marginalized families.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>15,000+ Meals Served</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>View Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 7. Blood Donation Drive -->
+            <div onclick="openProjectPage('blood')" class="poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group flex flex-col justify-between">
+              <div>
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                  <img src="images/blood-donation.jpg" alt="Blood Donation Drive" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                  <span class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">Healthcare</span>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-amber-400 text-xs font-bold uppercase">Emergency Aid</span>
+                    <h3 class="text-xl font-extrabold">Blood Donation Drive</h3>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <p class="text-xs text-emerald-800 font-bold uppercase tracking-wider">Be A Hero In Someone's Story</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">Organizing voluntary blood donation camps at hospitals and maintaining emergency donor registries across districts.</p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-900">
+                <span>2,500+ Units Donated</span>
+                <span class="group-hover:translate-x-1 transition-transform flex items-center space-x-1">
+                  <span>View Full Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 4. PAGE: DEDICATED PROJECT DETAIL (FULL PAGE VIEW)          -->
+    <!-- ============================================================ -->
+    <div id="page-project-detail" class="page-view">
+      
+      <!-- Dynamic Project Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          
+          <div class="flex items-center justify-between">
+            <button onclick="navigateTo('projects')" class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-emerald-200 hover:text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl border border-white/20 transition-all">
+              <span>&larr; Back to All Projects</span>
+            </button>
+            <span id="pdp-category" class="px-3.5 py-1 text-xs font-bold bg-amber-500 text-slate-950 rounded-full uppercase tracking-wider">Category</span>
+          </div>
+          
+          <div class="space-y-3 max-w-4xl">
+            <h1 id="pdp-title" class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">Project Title</h1>
+            <p id="pdp-tagline" class="text-emerald-100 text-base sm:text-lg">Project Tagline</p>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- Project Detail Body -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <!-- Key Metrics Row -->
+          <div id="pdp-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <!-- Populated via JS -->
+          </div>
+
+          <!-- Feature Image & Overview Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            <!-- Left Image Card -->
+            <div class="lg:col-span-5">
+              <div class="rounded-3xl overflow-hidden shadow-card border border-slate-200 bg-slate-900 group cursor-pointer" onclick="expandCurrentProjectImage()">
+                <img id="pdp-image" src="" alt="Project Photo" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="p-4 bg-slate-900 text-slate-300 text-xs flex justify-between items-center border-t border-slate-800">
+                  <span class="font-medium">InAmigos Verified Ground Impact</span>
+                  <span class="text-amber-400 font-bold">&plus; Click to Enlarge</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Detailed Content -->
+            <div class="lg:col-span-7 space-y-6">
+              
+              <div class="space-y-3">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center space-x-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+                  <span>Comprehensive Overview</span>
+                </h3>
+                <p id="pdp-overview" class="text-slate-700 text-base leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-200/80 font-body">
+                  Overview content...
+                </p>
+              </div>
+
+              <!-- Dynamic Sub-sections -->
+              <div id="pdp-sections" class="space-y-6">
+                <!-- Populated via JS -->
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Action Application & Donate Banner on Project Page -->
+          <div class="bg-gradient-to-r from-emerald-900 to-emerald-950 rounded-3xl p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+            <div class="space-y-2 text-center md:text-left">
+              <h3 class="text-2xl font-bold">Support or Volunteer for this Portfolio</h3>
+              <p class="text-emerald-200 text-sm max-w-xl">Join students, field volunteers, and donors in expanding this initiative's reach across India.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+              <button onclick="applyForCurrentProject()" class="px-6 py-3.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl shadow-button transition-all text-sm">
+                Apply for this Portfolio
+              </button>
+              <button onclick="navigateTo('donate')" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/20 transition-all text-sm">
+                Donate to Cause
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 5. PAGE: CAMPAIGNS (SEPARATE DEDICATED PAGE)                 -->
+    <!-- ============================================================ -->
+    <div id="page-campaigns" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span class="px-3.5 py-1 text-xs font-bold bg-amber-500 text-slate-950 rounded-full uppercase tracking-wider">Ground Drives</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Active Social Campaigns</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-sm sm:text-base">Explore all active grassroots campaigns led by InAmigos Foundation volunteers and youth ambassadors.</p>
+        </div>
+      </section>
+
+      <!-- Campaigns List -->
+      <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <!-- Campaign 1: Child Education -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-card border border-slate-200/90 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-4 cursor-pointer group" onclick="openLightbox('images/child-education.jpg', 'Campaign for Child Education')">
+              <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-slate-200">
+                <img src="images/child-education.jpg" alt="Campaign for Child Education" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-amber-100 text-amber-900 text-xs font-bold rounded-full uppercase">Education Drive</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-900 text-xs font-semibold rounded-full">Active Campaign</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-emerald-950">Campaign for Child Education</h2>
+              <p class="text-amber-700 font-bold text-sm italic">&ldquo;Poverty Ends When Love Wins &ndash; Let's Join Hands and Help Them&rdquo;</p>
+              <p class="text-slate-600 text-sm leading-relaxed font-body">
+                Our outdoor learning circles gather children living in semi-urban settlements and construction sites. Volunteers conduct interactive lessons, distribute school kits, pencils, notebooks, and provide warm meals.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 py-2">
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-center">
+                  <span class="text-lg font-bold text-emerald-900 block">4,500+</span>
+                  <span class="text-[11px] text-slate-500">Students Supported</span>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-center">
+                  <span class="text-lg font-bold text-emerald-900 block">25+</span>
+                  <span class="text-[11px] text-slate-500">Active Study Hubs</span>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-center">
+                  <span class="text-lg font-bold text-emerald-900 block">100% Free</span>
+                  <span class="text-[11px] text-slate-500">Kit Distribution</span>
+                </div>
+              </div>
+              <div class="flex gap-3 pt-2">
+                <button onclick="openProjectPage('bachpanshala')" class="px-5 py-2.5 bg-emerald-900 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs">
+                  Full Project Details &rarr;
+                </button>
+                <button onclick="navigateTo('donate')" class="px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs">
+                  Sponsor School Kit
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campaign 2: Spread Knowledge -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-card border border-slate-200/90 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-4 cursor-pointer group" onclick="openLightbox('images/spread-knowledge.jpg', 'Spread Knowledge Campaign')">
+              <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-slate-200">
+                <img src="images/spread-knowledge.jpg" alt="Educate Elevate Empower" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-900 text-xs font-bold rounded-full uppercase">Youth Mentorship</span>
+                <span class="px-3 py-1 bg-amber-100 text-amber-900 text-xs font-semibold rounded-full">Volunteer Movement</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-emerald-950">&ldquo;Your Knowledge Has The Power To Light A Thousand Minds&rdquo;</h2>
+              <p class="text-amber-700 font-bold text-sm italic">&ldquo;Don't Keep It &ndash; Spread It. Educate. Elevate. Empower.&rdquo;</p>
+              <p class="text-slate-600 text-sm leading-relaxed font-body">
+                Encouraging college undergraduates and professionals to dedicate 2 hours every weekend to teach elementary concepts, language skills, and digital basics to kids in local communities.
+              </p>
+              <div class="flex gap-3 pt-2">
+                <button onclick="navigateTo('contact')" class="px-5 py-2.5 bg-emerald-900 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs">
+                  Register as Teaching Volunteer &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campaign 3: Save Water & Tree Plantation -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-card border border-slate-200/90 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-4 cursor-pointer group" onclick="openLightbox('images/tree-plantation.jpg', 'Tree Plantation Drive')">
+              <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-slate-200">
+                <img src="images/tree-plantation.jpg" alt="Youth Tree Plantation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-900 text-xs font-bold rounded-full uppercase">Environment & Greenery</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-900 text-xs font-semibold rounded-full">Save Water Campaign</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-emerald-950">Save Water & Tree Plantation Drives</h2>
+              <p class="text-emerald-800 font-bold text-sm italic">&ldquo;Conserving every drop, planting green cover for tomorrow.&rdquo;</p>
+              <p class="text-slate-600 text-sm leading-relaxed font-body">
+                Our environmental volunteers organize plantation drives in schools, public gardens, and semi-arid tracts, combined with workshops on rainwater harvesting and stopping water wastage.
+              </p>
+              <div class="flex gap-3 pt-2">
+                <button onclick="openProjectPage('water')" class="px-5 py-2.5 bg-emerald-900 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs">
+                  View Save Water Portfolio &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 6. PAGE: MEDIA & PRESS (SEPARATE DEDICATED PAGE)             -->
+    <!-- ============================================================ -->
+    <div id="page-media" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span class="px-3.5 py-1 text-xs font-bold bg-amber-500 text-slate-950 rounded-full uppercase tracking-wider">Press & Social</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Media & Press Room</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-sm sm:text-base">Official announcements, verified social media handles, and ground coverage of InAmigos Foundation initiatives.</p>
+        </div>
+      </section>
+
+      <!-- Media Body -->
+      <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          <!-- Official Social Channels with Verified Links -->
+          <div class="bg-white rounded-3xl p-8 shadow-card border border-slate-200">
+            <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-900">Connect Directly</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-emerald-950">Official Verified Social Channels</h2>
+              <p class="text-slate-600 text-sm">Follow our daily stories, live drive updates, intern testimonials, and volunteer calls on our verified pages.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/inamigos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl border border-pink-200 hover:shadow-lg transition-all group flex flex-col justify-between">
+                <div class="space-y-3">
+                  <div class="w-12 h-12 rounded-xl bg-pink-600 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                  </div>
+                  <h3 class="font-extrabold text-slate-900 text-lg">Instagram</h3>
+                  <p class="text-xs text-slate-600">@inamigos &bull; Photos, stories, volunteer reels, and ground drive updates.</p>
+                </div>
+                <span class="pt-4 text-xs font-bold text-pink-700 group-hover:underline flex items-center space-x-1">
+                  <span>Visit Instagram Profile</span>
+                  <span>&rarr;</span>
+                </span>
+              </a>
+
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/InAmigos" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 hover:shadow-lg transition-all group flex flex-col justify-between">
+                <div class="space-y-3">
+                  <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </div>
+                  <h3 class="font-extrabold text-slate-900 text-lg">Facebook</h3>
+                  <p class="text-xs text-slate-600">@InAmigos &bull; Community articles, live streams, and volunteer meetups.</p>
+                </div>
+                <span class="pt-4 text-xs font-bold text-blue-700 group-hover:underline flex items-center space-x-1">
+                  <span>Visit Facebook Page</span>
+                  <span>&rarr;</span>
+                </span>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/company/inamigos-foundation/" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-br from-cyan-50 to-sky-50 rounded-2xl border border-cyan-200 hover:shadow-lg transition-all group flex flex-col justify-between">
+                <div class="space-y-3">
+                  <div class="w-12 h-12 rounded-xl bg-sky-700 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </div>
+                  <h3 class="font-extrabold text-slate-900 text-lg">LinkedIn</h3>
+                  <p class="text-xs text-slate-600">InAmigos Foundation &bull; CSR partnerships, internship certificates, and careers.</p>
+                </div>
+                <span class="pt-4 text-xs font-bold text-sky-800 group-hover:underline flex items-center space-x-1">
+                  <span>Connect on LinkedIn</span>
+                  <span>&rarr;</span>
+                </span>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Press Releases & Announcements -->
+          <div class="space-y-6">
+            <h2 class="text-2xl font-extrabold text-emerald-950">Official Press Releases</h2>
+            
+            <div class="space-y-4">
+              <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <span class="text-xs font-bold text-emerald-800 uppercase">Press Release &bull; August 2026</span>
+                  <h3 class="text-lg font-bold text-slate-900">InAmigos Foundation Crosses 30,000 Verified Student Intern Placements PAN India</h3>
+                  <p class="text-xs text-slate-500">Expanding hands-on development programs and domain mentorship across 28 states.</p>
+                </div>
+                <button onclick="openProjectPage('vikas')" class="self-start md:self-auto px-4 py-2 bg-emerald-50 text-emerald-900 font-bold rounded-xl text-xs hover:bg-emerald-100">Read Project Details</button>
+              </div>
+
+              <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <span class="text-xs font-bold text-emerald-800 uppercase">Impact Milestone &bull; 2026</span>
+                  <h3 class="text-lg font-bold text-slate-900">Launch of Rainwater Harvesting & Community Tree Drives under Save Water Portfolio</h3>
+                  <p class="text-xs text-slate-500">Partnering with local administrations to build awareness and restore green cover.</p>
+                </div>
+                <button onclick="openProjectPage('water')" class="self-start md:self-auto px-4 py-2 bg-emerald-50 text-emerald-900 font-bold rounded-xl text-xs hover:bg-emerald-100">Read Project Details</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 7. PAGE: PHOTO GALLERY (SEPARATE DEDICATED PAGE)             -->
+    <!-- ============================================================ -->
+    <div id="page-gallery" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span class="px-3.5 py-1 text-xs font-bold bg-amber-500 text-slate-950 rounded-full uppercase tracking-wider">Ground Photography</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Photo & Media Gallery</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-sm sm:text-base">Real photographs from our ground drives, computer labs, food distributions, and tree planting campaigns across India.</p>
+        </div>
+      </section>
+
+      <!-- Gallery Content -->
+      <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Category Filter Bar -->
+          <div class="flex items-center justify-center gap-2 flex-wrap mb-12" id="galleryFilterBar">
+            <button onclick="filterGallery('all')" data-filter="all" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-emerald-900 text-white shadow-sm">All Photos (10)</button>
+            <button onclick="filterGallery('water')" data-filter="water" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Save Water & Greenery</button>
+            <button onclick="filterGallery('education')" data-filter="education" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Child Education</button>
+            <button onclick="filterGallery('lab')" data-filter="lab" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Computer Labs & Vikas</button>
+            <button onclick="filterGallery('relief')" data-filter="relief" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Food & Relief Drives</button>
+            <button onclick="filterGallery('jeev')" data-filter="jeev" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Animal Rescue</button>
+            <button onclick="filterGallery('blood')" data-filter="blood" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Blood Donation</button>
+          </div>
+
+          <!-- All Photos Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="galleryGrid">
+            
+            <!-- Photo 1: Save Water Tap -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="water" onclick="openLightbox('images/save-water-tap.png', 'Save Water, Save Life - Conservation Graphic')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/save-water-tap.png" alt="Save Water Graphic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-emerald-800 uppercase">Save Water Campaign</span>
+                <h3 class="font-bold text-slate-900 text-sm">Save Water, Save Life Graphic</h3>
+              </div>
+            </div>
+
+            <!-- Photo 2: Save Water Bubble -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="water" onclick="openLightbox('images/save-water-bubble.png', 'Water Droplet & Green Ecosystem')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/save-water-bubble.png" alt="Water Droplet Bubble" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-emerald-800 uppercase">Water Conservation</span>
+                <h3 class="font-bold text-slate-900 text-sm">Ecosystem Protection in Every Drop</h3>
+              </div>
+            </div>
+
+            <!-- Photo 3: Tree Plantation Drive -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="water" onclick="openLightbox('images/tree-plantation.jpg', 'Youth Tree Plantation Drive on Ground')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/tree-plantation.jpg" alt="Youth Planting Trees" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-emerald-800 uppercase">Ground Tree Plantation</span>
+                <h3 class="font-bold text-slate-900 text-sm">Youth Planting Saplings on Ground</h3>
+              </div>
+            </div>
+
+            <!-- Photo 4: Project Vikas Computer Lab -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="lab" onclick="openLightbox('images/project-vikas-lab.jpg', 'Project Vikas - Computer Training Lab')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/project-vikas-lab.jpg" alt="Computer Lab Session" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-emerald-800 uppercase">Project Vikas &bull; Computer Lab</span>
+                <h3 class="font-bold text-slate-900 text-sm">Youth Technical Skills & DTP Training</h3>
+              </div>
+            </div>
+
+            <!-- Photo 5: Food Distribution Volunteers -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="relief" onclick="openLightbox('images/food-distribution.jpg', 'Project Seva - Food Package Distribution')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/food-distribution.jpg" alt="Food Distribution" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-amber-800 uppercase">Project Seva &bull; Food Drive</span>
+                <h3 class="font-bold text-slate-900 text-sm">Volunteers Serving Meal Packages on Ground</h3>
+              </div>
+            </div>
+
+            <!-- Photo 6: Children Meal Eating Circle -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="relief" onclick="openLightbox('images/children-meal.jpg', 'Children Sitting for Nutritious Meals')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/children-meal.jpg" alt="Children having meals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-amber-800 uppercase">Nutrition Drive</span>
+                <h3 class="font-bold text-slate-900 text-sm">Underprivileged Children Having Wholesome Meals</h3>
+              </div>
+            </div>
+
+            <!-- Photo 7: Child Education Campaign Poster -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="education" onclick="openLightbox('images/child-education.jpg', 'Campaign for Child Education Poster')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/child-education.jpg" alt="Child Education Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-emerald-800 uppercase">BachpanShala</span>
+                <h3 class="font-bold text-slate-900 text-sm">Campaign for Child Education Poster</h3>
+              </div>
+            </div>
+
+            <!-- Photo 8: Spread Knowledge Poster -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="education" onclick="openLightbox('images/spread-knowledge.jpg', 'Spread Knowledge Poster')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/spread-knowledge.jpg" alt="Educate Elevate Empower" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-emerald-800 uppercase">Education Drive</span>
+                <h3 class="font-bold text-slate-900 text-sm">"Don't Keep It &ndash; Spread It"</h3>
+              </div>
+            </div>
+
+            <!-- Photo 9: Project Jeev Animal Rescue -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="jeev" onclick="openLightbox('images/project-jeev.jpg', 'Project Jeev - Stray Animals Feed & Shelter')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/project-jeev.jpg" alt="Project Jeev Animal Shelter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-amber-800 uppercase">Project Jeev</span>
+                <h3 class="font-bold text-slate-900 text-sm">Feeding and Shelter for Stray Animals</h3>
+              </div>
+            </div>
+
+            <!-- Photo 10: Blood Donation Founder -->
+            <div class="gallery-item poster-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-card cursor-pointer group" data-cat="blood" onclick="openLightbox('images/blood-donation.jpg', 'Blood Donation Drive - Mr. Govind Shukla')">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
+                <img src="images/blood-donation.jpg" alt="Blood Donation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-white text-xs font-bold">&plus; Tap to View Fullscreen</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-1">
+                <span class="text-[10px] font-bold text-red-700 uppercase">Healthcare & Founder</span>
+                <h3 class="font-bold text-slate-900 text-sm">"Be A Hero In Someone's Story: Donate Blood"</h3>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 8. PAGE: TRUST & CREDENTIALS (SEPARATE DEDICATED PAGE)       -->
+    <!-- ============================================================ -->
+    <div id="page-badges" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span class="px-3.5 py-1 text-xs font-bold bg-emerald-800 text-amber-400 rounded-full uppercase tracking-wider border border-emerald-700">Governance & Compliance</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Trust Credentials & Tax Benefits</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-sm sm:text-base">We strictly adhere to all statutory compliances for CSR partnerships and 50% tax deductions under Section 80G.</p>
+        </div>
+      </section>
+
+      <!-- Badges Grid -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 space-y-4 hover:shadow-lg transition-all">
+              <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-900">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <h3 class="font-extrabold text-slate-900 text-lg">Section 8 Registered NGO</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">Incorporated under the Ministry of Corporate Affairs, Government of India, dedicated entirely to charitable public causes.</p>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 space-y-4 hover:shadow-lg transition-all">
+              <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-900">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h3 class="font-extrabold text-slate-900 text-lg">12A & 80G Tax Exemption</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">All contributions are eligible for a 50% tax deduction under Section 80G with instant receipt generation.</p>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 space-y-4 hover:shadow-lg transition-all">
+              <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-900">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <h3 class="font-extrabold text-slate-900 text-lg">CSR-1 Registered</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">Approved by the Ministry of Corporate Affairs for executing corporate CSR initiatives across India.</p>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 space-y-4 hover:shadow-lg transition-all">
+              <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-900">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="font-extrabold text-slate-900 text-lg">ISO 9001:2015 Certified</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">Quality operational standards in social welfare project execution and verified ground distribution.</p>
+            </div>
+
+          </div>
+
+          <!-- Documentation Contact Banner -->
+          <div class="bg-slate-100 p-8 rounded-3xl border border-slate-200 text-center space-y-4">
+            <h3 class="text-xl font-bold text-slate-900">Need CSR Registration Certificates or Audit Reports?</h3>
+            <p class="text-slate-600 text-sm max-w-xl mx-auto">Please reach out to our compliance secretariat at support@inamigosfoundation.org.in for official MOA, AOA, 12A/80G, and CSR-1 copies.</p>
+            <button onclick="navigateTo('contact')" class="px-6 py-3 bg-emerald-900 text-white font-bold rounded-xl text-xs hover:bg-emerald-800">
+              Contact Compliance Team
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 9. PAGE: CONTACT & VOLUNTEER APPLICATION                    -->
+    <!-- ============================================================ -->
+    <div id="page-contact" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span class="px-3.5 py-1 text-xs font-bold bg-amber-500 text-slate-950 rounded-full uppercase tracking-wider">Get in Touch</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Contact Us & Volunteer Application</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-sm sm:text-base">Join as an intern or volunteer, partner with us for CSR, or connect with our state coordinators.</p>
+        </div>
+      </section>
+
+      <!-- Contact Body -->
+      <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- Left Info Panel -->
+            <div class="lg:col-span-5 space-y-8">
+              
+              <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-card space-y-6">
+                <h3 class="text-2xl font-black text-emerald-950">Foundation Headquarters</h3>
+                
+                <div class="space-y-4 text-sm text-slate-600">
+                  <div class="flex items-start space-x-3">
+                    <svg class="w-5 h-5 text-amber-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <div>
+                      <span class="font-bold text-slate-800 block">Registered Office:</span>
+                      <span>Ward No. 5, Gram Post, Sipat Ujwal Nagar, Bilaspur, Chhattisgarh &ndash; 495555</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center space-x-3">
+                    <svg class="w-5 h-5 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <div>
+                      <span class="font-bold text-slate-800 block">Phone Support:</span>
+                      <a href="tel:+916267309902" class="text-emerald-900 font-semibold hover:underline">+91 626 730 9902</a>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center space-x-3">
+                    <svg class="w-5 h-5 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <div>
+                      <span class="font-bold text-slate-800 block">Email:</span>
+                      <a href="mailto:support@inamigosfoundation.org.in" class="text-emerald-900 font-semibold hover:underline">support@inamigosfoundation.org.in</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social quick connect -->
+              <div class="bg-emerald-950 text-white p-8 rounded-3xl border border-emerald-900 space-y-4">
+                <h4 class="font-bold text-amber-400 text-sm uppercase tracking-wider">Social Channels</h4>
+                <div class="flex items-center space-x-4">
+                  <a href="https://www.instagram.com/inamigos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="p-3 bg-emerald-900 hover:bg-amber-600 rounded-xl transition-all">Instagram</a>
+                  <a href="https://www.facebook.com/InAmigos" target="_blank" rel="noopener noreferrer" class="p-3 bg-emerald-900 hover:bg-amber-600 rounded-xl transition-all">Facebook</a>
+                  <a href="https://www.linkedin.com/company/inamigos-foundation/" target="_blank" rel="noopener noreferrer" class="p-3 bg-emerald-900 hover:bg-amber-600 rounded-xl transition-all">LinkedIn</a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Volunteer Application Form -->
+            <div class="lg:col-span-7">
+              <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-card border border-slate-200">
+                <h3 class="font-black text-slate-900 text-2xl mb-1">Apply as Volunteer / Intern</h3>
+                <p class="text-slate-500 text-xs mb-6">Complete all fields below. Our selection team will review your application within 48 hours.</p>
+                
+                <form id="volunteerForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label for="full_name" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Full Name</label>
+                      <input type="text" id="full_name" required placeholder="E.g., Priya Sharma" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-900 focus:bg-white transition-colors">
+                    </div>
+                    <div>
+                      <label for="email" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Email Address</label>
+                      <input type="email" id="email" required placeholder="priya@example.com" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-900 focus:bg-white transition-colors">
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label for="phone" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Phone Number</label>
+                      <input type="tel" id="phone" required placeholder="+91 98765 43210" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-900 focus:bg-white transition-colors">
+                    </div>
+                    <div>
+                      <label for="project_select" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Select Portfolio</label>
+                      <select id="project_select" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-900 focus:bg-white transition-colors">
+                        <option value="" disabled selected>Select a portfolio</option>
+                        <option value="Project Vikas">Project Vikas (Youth Employability & Internships)</option>
+                        <option value="Save Water, Save Life">Save Water, Save Life (Environmental Action)</option>
+                        <option value="BachpanShala">BachpanShala (Childhood Education)</option>
+                        <option value="Project Udaan">Project Udaan (Women DTP Upskilling)</option>
+                        <option value="Project Jeev">Project Jeev (Animal Protection & Rescue)</option>
+                        <option value="Project Seva">Project Seva (Nutritious Meals & Relief)</option>
+                        <option value="Blood Donation Drive">Blood Donation Drive (Healthcare)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="statement" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Statement of Interest / Experience</label>
+                    <textarea id="statement" required rows="4" placeholder="Tell us why you would like to participate..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-900 focus:bg-white transition-colors resize-none"></textarea>
+                  </div>
+
+                  <button type="submit" id="submitBtn" class="w-full py-4 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow-button hover:shadow-lg transition-all duration-200 text-sm">
+                    <span id="btnText">Submit Application</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- 10. PAGE: DONATE (SEPARATE DEDICATED PAGE)                  -->
+    <!-- ============================================================ -->
+    <div id="page-donate" class="page-view">
+      
+      <!-- Page Header -->
+      <section class="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <span class="px-3.5 py-1 text-xs font-bold bg-amber-500 text-slate-950 rounded-full uppercase tracking-wider">50% Tax Exemption Under 80G</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Support InAmigos Foundation</h1>
+          <p class="text-emerald-200 max-w-2xl mx-auto text-sm sm:text-base">Your contribution directly funds child education kits, stray animal meals, women's computer toolkits, and relief drives.</p>
+        </div>
+      </section>
+
+      <!-- Donation Container with Sample QR & Bank details -->
+      <section class="py-16 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-card border border-slate-200 space-y-8">
+            
+            <!-- Donation Mode Tabs -->
+            <div class="flex border-b border-slate-200">
+              <button onclick="toggleDonatePageTab('upi')" id="dp-tab-upi" class="flex-1 py-4 text-sm font-bold text-center border-b-2 border-emerald-900 text-emerald-900 transition-all">
+                UPI QR Transfer (Scan & Pay)
+              </button>
+              <button onclick="toggleDonatePageTab('bank')" id="dp-tab-bank" class="flex-1 py-4 text-sm font-semibold text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition-all">
+                Direct Bank Transfer (NEFT/RTGS/IMPS)
+              </button>
+            </div>
+
+            <!-- Tab 1: UPI with Sample Non-Working QR code (SVG based, no real photo inside) -->
+            <div id="dp-content-upi" class="space-y-8 text-center">
+              
+              <p class="text-sm text-slate-600 max-w-md mx-auto">
+                Scan the sample UPI QR code below using Google Pay, PhonePe, Paytm, BHIM, or any UPI app, or copy our official VPA ID.
+              </p>
+
+              <!-- Sample Designed Non-Working QR Box -->
+              <div class="mx-auto w-64 p-6 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-300 shadow-inner flex flex-col items-center justify-center space-y-4">
+                
+                <!-- Stylized Sample QR SVG -->
+                <div class="w-48 h-48 bg-white p-3 rounded-2xl shadow-sm border border-slate-200 flex items-center justify-center relative">
+                  <svg class="w-full h-full text-slate-800" viewBox="0 0 100 100" fill="currentColor">
+                    <!-- Position Detection Patterns (Top Left, Top Right, Bottom Left) -->
+                    <rect x="5" y="5" width="26" height="26" rx="4" fill="none" stroke="currentColor" stroke-width="4"/>
+                    <rect x="11" y="11" width="14" height="14" rx="2" fill="currentColor"/>
+                    
+                    <rect x="69" y="5" width="26" height="26" rx="4" fill="none" stroke="currentColor" stroke-width="4"/>
+                    <rect x="75" y="11" width="14" height="14" rx="2" fill="currentColor"/>
+                    
+                    <rect x="5" y="69" width="26" height="26" rx="4" fill="none" stroke="currentColor" stroke-width="4"/>
+                    <rect x="11" y="75" width="14" height="14" rx="2" fill="currentColor"/>
+
+                    <!-- Sample Data Bits Grid Pattern -->
+                    <rect x="36" y="8" width="6" height="6" rx="1"/>
+                    <rect x="46" y="8" width="6" height="6" rx="1"/>
+                    <rect x="56" y="8" width="6" height="6" rx="1"/>
+                    
+                    <rect x="36" y="18" width="6" height="6" rx="1"/>
+                    <rect x="56" y="18" width="6" height="6" rx="1"/>
+
+                    <rect x="36" y="28" width="6" height="6" rx="1"/>
+                    <rect x="46" y="28" width="6" height="6" rx="1"/>
+                    <rect x="76" y="36" width="6" height="6" rx="1"/>
+
+                    <rect x="8" y="36" width="6" height="6" rx="1"/>
+                    <rect x="18" y="46" width="6" height="6" rx="1"/>
+                    <rect x="28" y="36" width="6" height="6" rx="1"/>
+
+                    <!-- Center Badge -->
+                    <rect x="38" y="38" width="24" height="24" rx="4" fill="#064E3B"/>
+                    <text x="50" y="53" fill="white" font-size="9" font-weight="bold" text-anchor="middle" font-family="sans-serif">UPI</text>
+
+                    <rect x="68" y="46" width="6" height="6" rx="1"/>
+                    <rect x="86" y="46" width="6" height="6" rx="1"/>
+                    
+                    <rect x="8" y="56" width="6" height="6" rx="1"/>
+                    <rect x="28" y="56" width="6" height="6" rx="1"/>
+                    <rect x="68" y="56" width="6" height="6" rx="1"/>
+
+                    <rect x="36" y="68" width="6" height="6" rx="1"/>
+                    <rect x="46" y="78" width="6" height="6" rx="1"/>
+                    <rect x="56" y="68" width="6" height="6" rx="1"/>
+                    <rect x="46" y="88" width="6" height="6" rx="1"/>
+                    
+                    <rect x="68" y="76" width="6" height="6" rx="1"/>
+                    <rect x="78" y="68" width="6" height="6" rx="1"/>
+                    <rect x="86" y="86" width="6" height="6" rx="1"/>
+                  </svg>
+                </div>
+
+                <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Sample QR Code for Verification</span>
+              </div>
+
+              <!-- Official UPI ID copy box -->
+              <div>
+                <span class="text-xs font-bold text-slate-400 block uppercase tracking-wider mb-1.5">Official UPI VPA Handle</span>
+                <div class="inline-flex items-center space-x-3 bg-slate-50 px-6 py-3.5 rounded-2xl border border-slate-200">
+                  <span class="text-base font-bold text-emerald-950 select-all" id="pageUpiId">upi-inamigosfoundation@icici</span>
+                  <button onclick="copyText('pageUpiId')" class="px-3 py-1 bg-emerald-900 text-white rounded-lg text-xs font-bold hover:bg-emerald-800 transition-colors">
+                    Copy VPA
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Tab 2: Bank Account Details -->
+            <div id="dp-content-bank" class="space-y-6 hidden">
+              <p class="text-sm text-slate-600">You can transfer directly to our verified institutional bank account using Net Banking / IMPS / NEFT / RTGS:</p>
+              
+              <div class="space-y-3 bg-slate-50 p-6 rounded-2xl border border-slate-200 text-sm">
+                <div class="flex justify-between items-center py-2 border-b border-slate-200">
+                  <span class="text-slate-500 font-medium">Account Name:</span>
+                  <span class="font-bold text-slate-900">InAmigos Foundation</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-slate-200">
+                  <span class="text-slate-500 font-medium">Bank Name:</span>
+                  <span class="font-bold text-slate-900">State Bank of India / ICICI</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-slate-200">
+                  <span class="text-slate-500 font-medium">Account Number:</span>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-slate-900 select-all" id="pageBankAcc">41920803991</span>
+                    <button onclick="copyText('pageBankAcc')" class="text-xs text-emerald-900 font-bold underline">Copy</button>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-slate-200">
+                  <span class="text-slate-500 font-medium">IFSC Code:</span>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-emerald-900 select-all" id="pageBankIfsc">SBIN0005703</span>
+                    <button onclick="copyText('pageBankIfsc')" class="text-xs text-emerald-900 font-bold underline">Copy</button>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-slate-500 font-medium">Branch Location:</span>
+                  <span class="font-bold text-slate-900">Sipat Road, Bilaspur, Chhattisgarh</span>
+                </div>
+              </div>
+
+              <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-xs text-amber-900 leading-relaxed">
+                <strong>80G Tax Exemption Receipt:</strong> To receive your Section 80G receipt, kindly share your transaction reference, PAN number, and postal address to <span class="font-bold">support@inamigosfoundation.org.in</span>.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- ==================== GLOBAL FOOTER ==================== -->
+  <footer class="bg-emerald-950 text-emerald-100 pt-16 pb-8 border-t border-emerald-900 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-emerald-900">
+        
+        <!-- Col 1: About Logo & Socials -->
+        <div class="md:col-span-5 space-y-5">
+          <div class="flex items-center space-x-3">
+            <img src="logo.jpg" alt="InAmigos Foundation Logo" class="h-12 w-12 rounded-xl object-contain bg-black p-1 shadow-md border border-emerald-900">
+            <span class="font-extrabold text-xl tracking-tight text-white">
+              InAmigos <span class="text-amber-500 font-semibold">Foundation</span>
+            </span>
+          </div>
+          <p class="text-emerald-200/80 text-xs leading-relaxed max-w-sm">
+            Section 8 registered non-profit organization driving youth empowerment, child education, women upskilling, animal rescue, hunger relief, and environmental sustainability across India.
+          </p>
+          
+          <!-- Social Badges with requested verified URLs -->
+          <div class="flex items-center space-x-3 pt-2">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/inamigos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-emerald-900 hover:bg-amber-600 text-white flex items-center justify-center transition-all duration-300">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/InAmigos" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-xl bg-emerald-900 hover:bg-amber-600 text-white flex items-center justify-center transition-all duration-300">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/inamigos-foundation/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-emerald-900 hover:bg-amber-600 text-white flex items-center justify-center transition-all duration-300">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Col 2: Navigation Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs text-emerald-200/80">
+            <li><a href="#home" onclick="navigateTo('home'); return false;" class="hover:text-amber-400 transition-colors">Home Page</a></li>
+            <li><a href="#about" onclick="navigateTo('about'); return false;" class="hover:text-amber-400 transition-colors">About Us & Founder</a></li>
+            <li><a href="#projects" onclick="navigateTo('projects'); return false;" class="hover:text-amber-400 transition-colors">Core Action Projects</a></li>
+            <li><a href="#campaigns" onclick="navigateTo('campaigns'); return false;" class="hover:text-amber-400 transition-colors">Campaigns Page</a></li>
+            <li><a href="#media" onclick="navigateTo('media'); return false;" class="hover:text-amber-400 transition-colors">Media & Press Room</a></li>
+            <li><a href="#gallery" onclick="navigateTo('gallery'); return false;" class="hover:text-amber-400 transition-colors">Photo Gallery</a></li>
+            <li><a href="#badges" onclick="navigateTo('badges'); return false;" class="hover:text-amber-400 transition-colors">Trust & Credentials</a></li>
+          </ul>
+        </div>
+        
+        <!-- Col 3: Contact Info -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider">Registered Office</h4>
+          <ul class="space-y-2 text-xs text-emerald-200/80">
+            <li>Ward No. 5, Gram Post, Sipat Ujwal Nagar, Bilaspur, Chhattisgarh &ndash; 495555</li>
+            <li>Phone: <a href="tel:+916267309902" class="hover:text-amber-400 text-white font-medium">+91 626 730 9902</a></li>
+            <li>Email: <a href="mailto:support@inamigosfoundation.org.in" class="hover:text-amber-400 text-white font-medium">support@inamigosfoundation.org.in</a></li>
+          </ul>
+        </div>
+        
+      </div>
+      
+      <!-- Copyright Section -->
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-emerald-200/50 space-y-2 sm:space-y-0">
+        <p>&copy; 2026 InAmigos Foundation. All rights reserved. Registered Section 8 Non-Profit organization.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-amber-400">Privacy Policy</a>
+          <a href="#" class="hover:text-amber-400">Terms of Use</a>
+          <a href="#" class="hover:text-amber-400">CSR Compliance</a>
+        </div>
+      </div>
+      
+    </div>
+  </footer>
+
+
+  <!-- ==================== LIGHTBOX MODAL (PHOTO VIEWER) ==================== -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="lightbox-title" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-slate-950/90 backdrop-blur-md transition-opacity" onclick="closeLightbox()"></div>
+    
+    <div class="flex items-center justify-center min-h-screen p-4 sm:p-6">
+      <div class="relative bg-slate-900 rounded-3xl overflow-hidden shadow-2xl max-w-4xl w-full border border-slate-800 transition-all transform scale-95 opacity-0 duration-300" id="lightboxContainer">
+        
+        <div class="p-4 bg-slate-950/90 border-b border-slate-800 flex items-center justify-between text-white">
+          <div class="flex items-center space-x-3">
+            <img src="logo.jpg" alt="Logo" class="w-8 h-8 rounded-lg object-contain bg-black p-0.5">
+            <div>
+              <h3 id="lightboxTitle" class="text-sm font-bold text-white">Photo Viewer</h3>
+              <p class="text-[10px] text-amber-400 uppercase font-semibold">InAmigos Foundation Media</p>
+            </div>
+          </div>
+          <button onclick="closeLightbox()" class="p-2 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-300 hover:text-white transition-colors" aria-label="Close Lightbox">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="p-4 sm:p-6 flex items-center justify-center bg-black/70 min-h-[55vh]">
+          <img id="lightboxImg" src="" alt="Full view" class="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl">
+        </div>
+
+        <div class="p-4 bg-slate-950 flex items-center justify-between text-xs text-slate-400">
+          <span>InAmigos Ground Media Archive</span>
+          <button onclick="closeLightbox()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold rounded-xl transition-colors">
+            Close
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-emerald-950 text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none max-w-md border border-emerald-800">
+    <div class="w-8 h-8 rounded-full bg-emerald-800 flex items-center justify-center text-amber-400 shrink-0">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <div>
+      <h4 class="font-bold text-sm text-white" id="toastTitle">Notification</h4>
+      <p class="text-xs text-emerald-200 mt-0.5" id="toastDesc">Description</p>
+    </div>
+  </div>
+
+
+  <!-- ==================== FRONT-END ROUTING & LOGIC SCRIPT ==================== -->
+  <script>
+    // Detailed Data for all 7 Core Action Projects
+    const PROJECTS_DATABASE = {
+      vikas: {
+        id: "vikas",
+        title: "Project Vikas: Transforming Careers, One Internship at a Time",
+        shortTitle: "Project Vikas",
+        category: "Youth Employability & Internships",
+        image: "images/project-vikas-lab.jpg",
+        tagline: "Bridging the gap between education and employability for young India through hands-on technical labs and mentorship.",
+        stats: [
+          { label: "Internship Opps", value: "1,000+" },
+          { label: "Interns Engaged", value: "100,000+" },
+          { label: "Interns Placed", value: "30,000+" },
+          { label: "Impact Area", value: "PAN India" }
+        ],
+        overview: "For the past four years, InAmigos Foundation has been committed to empowering young minds through Project Vikas, an initiative that has revolutionized internship opportunities across diverse domains. We establish hands-on learning labs, computer literacy workshops, and mentorship pipelines to help undergraduates secure meaningful careers.",
+        sections: [
+          {
+            title: "Diverse Career Domains & Labs",
+            items: [
+              { name: "Computer Labs & Digital Skills", desc: "Hands-on desktop publishing (DTP), office productivity, and software proficiency in real lab environments." },
+              { name: "Digital Marketing & Social Media", desc: "Live campaign execution, brand outreach, and community engagement strategies." },
+              { name: "Content Writing & Graphic Designing", desc: "Storytelling, journalism, and creative collateral designing for social causes." },
+              { name: "HR, Operations & Event Management", desc: "Talent acquisition, leadership development, and ground campaign operations." }
+            ]
+          },
+          {
+            title: "Holistic Career Growth",
+            highlights: [
+              "Webinars, Seminars, and Live Interactive Sessions with sector experts.",
+              "Resume building, Mock Interviews, and direct industry recommendation letters.",
+              "Government-recognized Section 8 verified Certificate of Completion."
+            ]
+          }
+        ]
+      },
+
+      water: {
+        id: "water",
+        title: "Save Water, Save Life: A Call to Action for Sustainable Future",
+        shortTitle: "Save Water, Save Life",
+        category: "Water Conservation & Environment",
+        image: "images/save-water-tap.png",
+        tagline: "Securing every drop through rainwater harvesting, water management workshops, and massive community tree plantation drives.",
+        stats: [
+          { label: "Lack Clean Water", value: "2 Billion" },
+          { label: "Trees Planted", value: "20,000+" },
+          { label: "Workshops Held", value: "120+" },
+          { label: "Campaign Scope", value: "PAN India" }
+        ],
+        overview: "Water is the essence of life, yet less than 1% of the Earth's freshwater is easily accessible for human consumption. At InAmigos Foundation, our Save Water, Save Life initiative tackles water scarcity at the grassroots level by installing rainwater harvesting structures, driving tree plantation drives, and educating communities on conservation.",
+        sections: [
+          {
+            title: "Core Environmental Interventions",
+            items: [
+              { name: "Rainwater Harvesting Systems", desc: "Installing and demonstrating low-cost rainwater harvesting models in schools and community centers." },
+              { name: "Mass Tree Plantation Drives", desc: "Planting native trees to prevent soil erosion, restore groundwater tables, and combat regional droughts." },
+              { name: "Water Management Workshops", desc: "Interactive training sessions in schools and villages on fixing leaks, recycling greywater, and eliminating wastage." }
+            ]
+          },
+          {
+            title: "Action Steps for Every Citizen",
+            highlights: [
+              "Fix household leakages: saving up to 3,000 liters per tap annually.",
+              "Adopt rainwater collection barrels for domestic garden usage.",
+              "Participate in regional InAmigos weekend tree plantation drives."
+            ]
+          }
+        ]
+      },
+
+      bachpanshala: {
+        id: "bachpanshala",
+        title: "BachpanShala: Campaign for Child Education",
+        shortTitle: "BachpanShala",
+        category: "Childhood Education & Welfare",
+        image: "images/child-education.jpg",
+        tagline: "Poverty Ends When Love Wins &ndash; Outdoor study hubs, school kits, and holistic nourishment for under-resourced children.",
+        stats: [
+          { label: "Children Educated", value: "4,500+" },
+          { label: "Study Hubs", value: "25+" },
+          { label: "Active Tutors", value: "500+" },
+          { label: "Free School Kits", value: "5,000+" }
+        ],
+        overview: "Childhood is the most critical developmental phase. Yet, thousands of children face barriers like lack of schooling, poverty, and guidance. BachpanShala brings classrooms into communities with outdoor study circles, stationery distribution, and weekly health checkups.",
+        sections: [
+          {
+            title: "Four Pillars of BachpanShala",
+            items: [
+              { name: "Outdoor Study Circles", desc: "Conducting engaging open-air classes in underserved neighborhoods." },
+              { name: "Free Educational Kits", desc: "Supplying notebooks, textbooks, geometry boxes, and bags for the academic year." },
+              { name: "Health & Nutrition", desc: "Distributing fruits and nutritious meals during study sessions." },
+              { name: "Creative Arts & Mentorship", desc: "Drawing, science experiments, and values education for confidence." }
+            ]
+          }
+        ]
+      },
+
+      udaan: {
+        id: "udaan",
+        title: "Project Udaan: Women Empowerment & DTP Upskilling",
+        shortTitle: "Project Udaan",
+        category: "Women Empowerment & Skills",
+        image: "images/project-udaan.jpg",
+        tagline: "Empowering women with Desktop Publishing (DTP), personal mentorship, and micro-enterprise toolkits.",
+        stats: [
+          { label: "Women Empowered", value: "900+" },
+          { label: "Micro-Enterprises", value: "150+" },
+          { label: "Skill Modules", value: "DTP & Office" },
+          { label: "Mentorship", value: "Personalized" }
+        ],
+        overview: "Project Udaan unlocks financial independence for women through targeted technical and vocational training. From desktop publishing and computer proficiency to handicrafts and financial literacy, we help women build sustainable livelihoods.",
+        sections: [
+          {
+            title: "Udaan Skill Tracks",
+            items: [
+              { name: "Desktop Publishing & IT", desc: "Hands-on training in document design, typing, printing, and digital office tools." },
+              { name: "Micro-Enterprise Support", desc: "Helping graduates set up home-based digital service centers and tailoring hubs." },
+              { name: "Legal & Financial Literacy", desc: "Workshops on digital banking, government schemes, and legal rights." }
+            ]
+          }
+        ]
+      },
+
+      jeev: {
+        id: "jeev",
+        title: "Project Jeev: In This Life, Save a Life",
+        shortTitle: "Project Jeev",
+        category: "Animal Protection & Welfare",
+        image: "images/project-jeev.jpg",
+        tagline: "Feeding stray animals, building weatherproof makeshift shelters, and providing rescue aid.",
+        stats: [
+          { label: "Strays Fed Daily", value: "800+" },
+          { label: "Shelters Built", value: "300+" },
+          { label: "Vaccination Drives", value: "50+" },
+          { label: "Care Volunteers", value: "200+" }
+        ],
+        overview: "Project Jeev was founded on the conviction that stray animals deserve compassion and protection. Every day, our volunteer routes feed over 800 stray dogs and puppies and construct makeshift shelters to protect litters from extreme weather.",
+        sections: [
+          {
+            title: "Action Initiatives",
+            items: [
+              { name: "Daily Stray Feeding", desc: "Nutritious daily meals prepared and distributed to stray animals." },
+              { name: "Makeshift Shelters", desc: "Straw and tarpaulin shelters to keep stray puppies warm and dry." },
+              { name: "First Aid & Anti-Rabies", desc: "Administering basic wound care and anti-rabies vaccination drives." }
+            ]
+          }
+        ]
+      },
+
+      seva: {
+        id: "seva",
+        title: "Project Seva: Nutritious Meals & Emergency Relief",
+        shortTitle: "Project Seva",
+        category: "Hunger Relief & Social Support",
+        image: "images/food-distribution.jpg",
+        tagline: "Serving freshly cooked meals, winter blanket drives, and emergency ration packages to disadvantaged families.",
+        stats: [
+          { label: "Meals Served", value: "15,000+" },
+          { label: "Blankets Distributed", value: "3,000+" },
+          { label: "Families Supported", value: "1,200+" },
+          { label: "Drive Scope", value: "Multi-State" }
+        ],
+        overview: "Project Seva stands beside families suffering from extreme poverty and climate distress. Through community feeding drives and winter relief distributions, we ensure that warmth, food, and human dignity reach every individual.",
+        sections: [
+          {
+            title: "Relief Programs",
+            items: [
+              { name: "Nutritious Hot Meals", desc: "Wholesome freshly prepared meals served to children and pavement dwellers." },
+              { name: "Winter Blanket Drives", desc: "Distributing warm blankets and woollens during severe North Indian winters." },
+              { name: "Emergency Dry Rations", desc: "Providing wheat, rice, pulses, and cooking oil kits to struggling households." }
+            ]
+          }
+        ]
+      },
+
+      blood: {
+        id: "blood",
+        title: "Blood Donation Drive: Be A Hero In Someone's Story",
+        shortTitle: "Blood Donation",
+        category: "Healthcare & Emergency Action",
+        image: "images/blood-donation.jpg",
+        tagline: "Leadership that leads by example &ndash; Hospital blood donation camps and 24/7 voluntary donor registries.",
+        stats: [
+          { label: "Units Collected", value: "2,500+" },
+          { label: "Camps Organised", value: "45+" },
+          { label: "Registered Donors", value: "1,000+" },
+          { label: "Leader-Led", value: "Mr. Govind Shukla" }
+        ],
+        overview: "Inspired by CEO & Founder Mr. Govind Shukla sir ('Don't wait for the change, be the change'), InAmigos Foundation regularly conducts voluntary blood donation camps in district hospitals to ensure blood banks remain stocked for emergencies.",
+        sections: [
+          {
+            title: "Key Objectives",
+            items: [
+              { name: "Hospital Blood Bank Support", desc: "Conducting voluntary donation camps with certified doctors and medical teams." },
+              { name: "Emergency Donor Network", desc: "Connecting critical surgery and thalassaemia patients with emergency blood donors." },
+              { name: "Youth Awareness", desc: "Busting myths and encouraging regular voluntary blood donation among youth." }
+            ]
+          }
+        ]
+      }
+    };
+
+    let currentOpenProjectId = 'vikas';
+
+    // SPA Multi-Page Router: Shows only the selected page, scrolls to top, updates URL hash
+    function navigateTo(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page-view');
+      pages.forEach(p => p.classList.remove('active'));
+
+      // Show target page
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.location.hash = pageId;
+      }
+
+      // Update Nav Link Active states
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('active-tab');
+        } else {
+          link.classList.remove('active-tab');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('active-tab');
+        } else {
+          link.classList.remove('active-tab');
+        }
+      });
+    }
+
+    // Open dedicated Full Page Project View
+    function openProjectPage(projectId) {
+      const project = PROJECTS_DATABASE[projectId];
+      if (!project) return;
+
+      currentOpenProjectId = projectId;
+
+      document.getElementById('pdp-category').innerText = project.category;
+      document.getElementById('pdp-title').innerText = project.title;
+      document.getElementById('pdp-tagline').innerHTML = project.tagline;
+      document.getElementById('pdp-image').src = project.image;
+      document.getElementById('pdp-overview').innerText = project.overview;
+
+      // Stats
+      const statsContainer = document.getElementById('pdp-stats');
+      statsContainer.innerHTML = project.stats.map(s => `
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center">
+          <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block mb-1">${s.label}</span>
+          <span class="text-xl sm:text-2xl font-black text-emerald-950">${s.value}</span>
+        </div>
+      `).join('');
+
+      // Sub-sections
+      const secContainer = document.getElementById('pdp-sections');
+      let html = '';
+
+      project.sections.forEach(sec => {
+        html += `
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
+            <h4 class="font-extrabold text-emerald-950 text-base flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>${sec.title}</span>
+            </h4>
+        `;
+
+        if (sec.items && sec.items.length > 0) {
+          html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">`;
+          sec.items.forEach(item => {
+            html += `
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                <h5 class="font-bold text-slate-900 text-xs sm:text-sm text-emerald-900">${item.name}</h5>
+                <p class="text-slate-600 text-xs leading-relaxed font-body">${item.desc}</p>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        if (sec.highlights && sec.highlights.length > 0) {
+          html += `<ul class="space-y-2 pt-2">`;
+          sec.highlights.forEach(h => {
+            html += `
+              <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-700">
+                <span class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">&check;</span>
+                <span>${h}</span>
+              </li>
+            `;
+          });
+          html += `</ul>`;
+        }
+
+        html += `</div>`;
+      });
+
+      secContainer.innerHTML = html;
+
+      // Navigate to project detail view
+      navigateTo('project-detail');
+    }
+
+    function expandCurrentProjectImage() {
+      const project = PROJECTS_DATABASE[currentOpenProjectId];
+      if (project) {
+        openLightbox(project.image, project.title);
+      }
+    }
+
+    function applyForCurrentProject() {
+      const project = PROJECTS_DATABASE[currentOpenProjectId];
+      navigateTo('contact');
+      if (project) {
+        const select = document.getElementById('project_select');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.toLowerCase().includes(project.shortTitle.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    // Lightbox modal controls
+    function openLightbox(imgSrc, title) {
+      document.getElementById('lightboxImg').src = imgSrc;
+      document.getElementById('lightboxTitle').innerText = title || "InAmigos Ground Photo";
+      const modal = document.getElementById('lightboxModal');
+      const container = document.getElementById('lightboxContainer');
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      setTimeout(() => {
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      const container = document.getElementById('lightboxContainer');
+      container.classList.remove('scale-100', 'opacity-100');
+      container.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }, 250);
+    }
+
+    // Gallery Filtering
+    function filterGallery(category) {
+      document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-emerald-900 text-white shadow-sm";
+        } else {
+          btn.className = "gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200";
+        }
+      });
+
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        if (category === 'all' || item.getAttribute('data-cat') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Donation Page Tabs
+    function toggleDonatePageTab(tab) {
+      const upiTabBtn = document.getElementById('dp-tab-upi');
+      const bankTabBtn = document.getElementById('dp-tab-bank');
+      const upiContent = document.getElementById('dp-content-upi');
+      const bankContent = document.getElementById('dp-content-bank');
+
+      if (tab === 'upi') {
+        upiTabBtn.className = "flex-1 py-4 text-sm font-bold text-center border-b-2 border-emerald-900 text-emerald-900 transition-all";
+        bankTabBtn.className = "flex-1 py-4 text-sm font-semibold text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition-all";
+        upiContent.classList.remove('hidden');
+        bankContent.classList.add('hidden');
+      } else {
+        bankTabBtn.className = "flex-1 py-4 text-sm font-bold text-center border-b-2 border-emerald-900 text-emerald-900 transition-all";
+        upiTabBtn.className = "flex-1 py-4 text-sm font-semibold text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition-all";
+        bankContent.classList.remove('hidden');
+        upiContent.classList.add('hidden');
+      }
+    }
+
+    // Copy to clipboard helper
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Copied to Clipboard!", `${text} has been copied.`);
+      });
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const isOpen = !menu.classList.contains('hidden');
+
+      if (isOpen) {
+        menu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        menu.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    }
+
+    // Volunteer Form handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btnText = document.getElementById('btnText');
+      btnText.innerText = "Submitting Application...";
+      setTimeout(() => {
+        btnText.innerText = "Submit Application";
+        document.getElementById('volunteerForm').reset();
+        showToast("Application Submitted!", "Thank you for joining InAmigos Foundation. Our team will contact you shortly.");
+      }, 1200);
+    }
+
+    // Toast notification
+    function showToast(title, desc) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastDesc').innerText = desc;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // Handle initial routing on load or hash change
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById('page-' + hash)) {
+        navigateTo(hash);
+      } else {
+        navigateTo('home');
+      }
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById('page-' + hash)) {
+        navigateTo(hash);
+      }
+    });
+
+    // Keyboard Escape handler
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
